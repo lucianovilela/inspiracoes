@@ -14,20 +14,25 @@ const MyCanvas = ({ list }) => {
   });
 
   return (
-    <div id="my-node" className="card">
-      <div>
+    <div id="canvas-id" className="card">
+      <div className="card-header" style={{ marginTop: ".5em" }}>
         <h1>Minhas Inspirações</h1>
       </div>
-      {list.map((item) => (
-        <div className="row" style={{ marginBottom: "0.5em" }} key={item.id}>
-          <div className="col-4">
-            <label className="form-label">{item.nome}</label>
+      <div className="card-body">
+        {list.map((item) => (
+          <div className="row" style={{ margin: "0.5em" }} key={item.id}>
+            <div className="col-4">
+              <label className="form-label">{item.nome}</label>
+            </div>
+            <div className="col-8">
+              <input name="texto" type="text" className="form-control" />
+            </div>
           </div>
-          <div className="col-8">
-            <input name="texto" type="text" className="form-control" />
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
+      <div className="card-footer">
+        Gerado automaticamente com https://www.inspirational.tk
+      </div>
     </div>
   );
 };
@@ -62,7 +67,7 @@ export default function App() {
     { id: 7, nome: "Estratégia" }
   ]);
   React.useEffect(() => {
-    node.current = document.getElementById("my-node");
+    node.current = document.getElementById("canvas-id");
   });
 
   const click = () => {
@@ -102,7 +107,7 @@ export default function App() {
           Download
         </a>
       </div>
-      <Toast />
+      <div className="fixed-bottom">inspirational.tk</div>
     </div>
   );
 }
