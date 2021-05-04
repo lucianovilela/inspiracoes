@@ -79,8 +79,10 @@
 
       async function copyToClipboard(url) {
         let b = await fetch(url).then((res) => res.blob());
-        console.log(b);
-        navigator.clipboard.write([new ClipboardItem({ "image/png": b })]);
+        //console.log(b);
+        await navigator.clipboard.write([
+          new ClipboardItem({ "image/png": b })
+        ]);
       }
     </script>
   </body>

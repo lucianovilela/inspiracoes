@@ -14,7 +14,7 @@ const MyCanvas = ({ list }) => {
   });
 
   return (
-    <div id="my-node">
+    <div id="my-node" className="card">
       <div>
         <h1>Minhas Inspirações</h1>
       </div>
@@ -32,25 +32,26 @@ const MyCanvas = ({ list }) => {
   );
 };
 
-const Toast=()=>(
-  <>
-  <div class="toast" role="alert" aria-live="assertive" aria-atomic="true">
-  <div class="toast-header">
-    <img src="..." class="rounded me-2" alt="...">
-    <strong class="me-auto">Bootstrap</strong>
-    <small>11 mins ago</small>
-    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+const Toast = () => (
+  <div className="toast" role="alert" aria-live="assertive" aria-atomic="true">
+    <div className="toast-header">
+      <img src="..." className="rounded me-2" alt="..." />
+      <strong className="me-auto">Bootstrap</strong>
+      <small>11 mins ago</small>
+      <button
+        type="button"
+        className="btn-close"
+        data-bs-dismiss="toast"
+        aria-label="Close"
+      ></button>
+    </div>
+    <div className="toast-body">Hello, world! This is a toast message.</div>
   </div>
-  <div class="toast-body">
-    Hello, world! This is a toast message.
-  </div>
-</div>
-</>
 );
-
 
 export default function App() {
   var node = React.useRef();
+  const [img, setImg] = React.useState();
   const [list, setList] = React.useState([
     { id: 1, nome: "Guarda" },
     { id: 2, nome: "Passagem" },
@@ -70,11 +71,13 @@ export default function App() {
       .then(async function (dataUrl) {
         //let url = await window.saveArquivo(dataUrl);
         window.copyToClipboard(dataUrl);
+
         //console.log(url);
-        //setImg(url);
+        setImg(dataUrl);
         //var img = new Image();
         //img.src = dataUrl;
         //document.body.appendChild(img);
+        alert("imagem copiada");
       })
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
@@ -84,11 +87,22 @@ export default function App() {
   return (
     <div className="App">
       <MyCanvas list={list} />
-      <p>
+      <div>
         <button className="btn btn-primary" onClick={click}>
-          Salva clipboard
+          Cópia para clipboard
         </button>
-      </p>
+        <a
+          className="btn btn-primary"
+          href={img}
+          style={{ display: img ? "" : "none", marginLeft: "1em" }}
+          target="_blank"
+          rel="noreferrer"
+          download
+        >
+          Download
+        </a>
+      </div>
+      <Toast />
     </div>
   );
 }
