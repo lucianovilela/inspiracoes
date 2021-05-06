@@ -1,6 +1,5 @@
 * {
   margin: 0;
-  background-color: #fff;
 }
 
 .App {
@@ -18,4 +17,15 @@
 }
 .cell input {
   margin: 10px;
+}
+
+.fixed-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:rgb(63, 18, 223);
+  color: white;
+  text-align: center;
+
 }
