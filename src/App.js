@@ -15,8 +15,6 @@ import { makeStyles } from "@material-ui/core/styles";
 import MenuIcon from "@material-ui/icons/Menu";
 import { Language } from "@material-ui/icons";
 
-import AlertDialog from "./AlertDialog";
-
 import Menu from "./Menu";
 import { Carrocel } from "./Carrocel";
 import { MyCanvas } from "./MyCanvas";

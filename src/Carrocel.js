@@ -25,11 +25,11 @@ export const Carrocel = ({ list, setList }) => {
   return (
     <Card id="carrocelId" className="card">
       <CardContent className="card-body">
-        <InputLabel className="form-label">{current.item.nome}</InputLabel>
+        <InputLabel className="form-label">{t(current.item.nome)}</InputLabel>
         <TextField
           className="form-control"
           onChange={(event) => onChange(event)}
-          value={t(current.item.valor)}
+          value={current.item.valor}
         />
       </CardContent>
       <CardActions>

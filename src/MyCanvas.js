@@ -32,10 +32,10 @@ export const MyCanvas = ({ list, show, setShow }) => {
   };
   return (
     <div>
-      <Dialog open={show} aria-labelledby="form-dialog-title">
+      <Dialog fullScreen open={show} aria-labelledby="form-dialog-title">
         <div id="canvasId" ref={node}>
           <Card>
-            <CardHeader title="Minhas Inspirações" />
+            <CardHeader title={t("title")} />
             <CardContent>
               <Grid container spacing={1}>
                 {Object.keys(list).map((i) => (
