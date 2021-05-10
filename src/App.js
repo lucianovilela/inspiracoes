@@ -37,13 +37,13 @@ export default function App() {
 
   const { t, i18n } = useTranslation();
   const initial = {
-    "1": { nome: t("guarda"), valor: "" },
-    "2": { nome: t("passagem"), valor: "" },
-    "3": { nome: t("costas"), valor: "" },
-    "4": { nome: t("queda"), valor: "" },
-    "5": { nome: t("raspagem"), valor: "" },
-    "6": { nome: t("finalizacao"), valor: "" },
-    "7": { nome: t("estrategia"), valor: "" }
+    "1": { nome: "guarda", valor: "" },
+    "2": { nome: "passagem", valor: "" },
+    "3": { nome: "costas", valor: "" },
+    "4": { nome: "queda", valor: "" },
+    "5": { nome: "raspagem", valor: "" },
+    "6": { nome: "finalizacao", valor: "" },
+    "7": { nome: "estrategia", valor: "" }
   };
   const [list, setList] = React.useState(initial);
   const [showView, setShowView] = React.useState(false);

@@ -9,11 +9,15 @@ import {
   Link,
   Paper
 } from "@material-ui/core";
+import { useTranslation } from "react-i18next";
+
 import { Dialog, DialogActions, Grid } from "@material-ui/core";
 
 export const MyCanvas = ({ list, show, setShow }) => {
   const node = React.createRef();
   const [img, setImg] = React.useState();
+  const { t } = useTranslation();
+
   const click = () => {
     domtoimage
       .toPng(node.current)
@@ -37,7 +41,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
                 {Object.keys(list).map((i) => (
                   <Grid container spacing={3} key={i}>
                     <Grid item xs={4}>
-                      {list[i].nome}
+                      {t(list[i].nome)}
                     </Grid>
 
                     <Grid item xs={8}>

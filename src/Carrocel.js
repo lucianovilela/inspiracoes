@@ -11,7 +11,7 @@ import { Grid } from "@material-ui/core";
 import Pagination from "@material-ui/lab/Pagination";
 
 export const Carrocel = ({ list, setList }) => {
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const [current, setCurrent] = React.useState({ id: 1, item: list[1] });
 
@@ -29,7 +29,7 @@ export const Carrocel = ({ list, setList }) => {
         <TextField
           className="form-control"
           onChange={(event) => onChange(event)}
-          value={current.item.valor}
+          value={t(current.item.valor)}
         />
       </CardContent>
       <CardActions>
