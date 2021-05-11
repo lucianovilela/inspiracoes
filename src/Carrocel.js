@@ -33,7 +33,7 @@ export const Carrocel = ({ list, setList }) => {
         />
       </CardContent>
       <CardActions>
-        <Grid container justify="center" xs={12}>
+        <Grid container justify="center">
           <Pagination
             count={Object.keys(list).length}
             variant="outlined"

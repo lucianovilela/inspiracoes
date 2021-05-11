@@ -7,7 +7,7 @@ import detector from "i18next-browser-languagedetector";
 const resources = {
   en: {
     translation: {
-      title: "My Inspirations",
+      title: "My Inspirations BJJ",
       guarda: "Guard",
       passagem: "Guard pass",
       costas: "Back attack",
@@ -20,9 +20,9 @@ const resources = {
       copiar: "Copy to Clipboard"
     }
   },
-  br: {
+  "pt-br": {
     translation: {
-      title: "Minhas Inspirações",
+      title: "Minhas Inspirações BJJ",
       guarda: "Guarda",
       passagem: "Passagem",
       costas: "Pela costas",
@@ -42,7 +42,7 @@ i18n
   .use(detector) // passes i18n down to react-i18next
   .init({
     resources,
-    lng: "br",
+    lng: "en",
     fallbackLng: "en", // use en if detected lng is not available
 
     keySeparator: false, // we do not use keys in form messages.welcome
