@@ -7,7 +7,7 @@ import {
   CardContent,
   CardActions,
   Link,
-  Paper
+  Box
 } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
@@ -19,6 +19,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
   const { t } = useTranslation();
 
   const click = () => {
+    console.log("click canvas", node.current);
     domtoimage
       .toPng(node.current)
       .then(async function (dataUrl) {
@@ -30,6 +31,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
         console.error("oops, something went wrong!", error);
       });
   };
+
   return (
     <div>
       <Dialog fullScreen open={show} aria-labelledby="form-dialog-title">
@@ -37,28 +39,30 @@ export const MyCanvas = ({ list, show, setShow }) => {
           <Card>
             <CardHeader title={t("title")} />
             <CardContent>
-              <Grid container spacing={1}>
+              <Grid container>
                 {Object.keys(list).map((i) => (
-                  <Grid container spacing={3} key={i}>
+                  <Grid container key={i} spacing={1}>
                     <Grid item xs={4}>
-                      {t(list[i].nome)}
+                      <Box border={1} padding={1}>
+                        {t(list[i].nome)}
+                      </Box>
                     </Grid>
 
                     <Grid item xs={8}>
-                      <Paper variant="outlined">{list[i].valor}&nbsp;</Paper>
+                      <Box border={1} padding={1}>
+                        {list[i].valor}&nbsp;
+                      </Box>
                     </Grid>
                   </Grid>
                 ))}
               </Grid>
             </CardContent>
-            <CardActions>
-              Gerado automaticamente com https://inspirational.tk
-            </CardActions>
+            <CardActions>{t("msgAuto")} https://inspirational.tk</CardActions>
           </Card>
         </div>
         <DialogActions>
           <Button variant="outlined" color="primary" onClick={click}>
-            Copiar para Clipboard
+            {t("copiar")}
           </Button>
           <Link
             variant="button"
@@ -72,7 +76,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
             Download
           </Link>
           <Link
-            variant="outlined"
+            variant="button"
             color="secondary"
             onClick={() => setShow(false)}
           >

@@ -1,5 +1,6 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
+import detector from "i18next-browser-languagedetector";
 
 // the translations
 // (tip move them in a JSON file and import them)
@@ -14,7 +15,9 @@ const resources = {
       raspagem: "Swap",
       finalizacao: "Tapout",
       estrategia: "Strategy",
-      vizualizacao: "View"
+      visualizar: "View",
+      msgAuto: "Made by",
+      copiar: "Copy to Clipboard"
     }
   },
   br: {
@@ -27,16 +30,20 @@ const resources = {
       raspagem: "Raspagem",
       finalizacao: "Finalizacao",
       estrategia: "Estratégia",
-      vizualizacao: "Visualização"
+      visualizar: "Visualizar",
+      msgAuto: "Gerado por",
+      copiar: "Copiar para o Clipboard"
     }
   }
 };
 
 i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
+  .use(initReactI18next)
+  .use(detector) // passes i18n down to react-i18next
   .init({
     resources,
     lng: "br",
+    fallbackLng: "en", // use en if detected lng is not available
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

@@ -7,7 +7,8 @@ import {
   AppBar,
   IconButton,
   Toolbar,
-  Typography
+  Typography,
+  Box
 } from "@material-ui/core";
 
 import { makeStyles } from "@material-ui/core/styles";
@@ -81,7 +82,7 @@ export default function App() {
           style={{ margin: "0.5em" }}
           onClick={() => setShowView(true)}
         >
-          Visualizar
+          {t("visualizar")}
         </Button>
 
         <Button
@@ -94,7 +95,11 @@ export default function App() {
       </div>
       {/*<div>{JSON.stringify(list)}</div>*/}
       {<MyCanvas list={list} show={showView} setShow={setShowView} />}
-      <div className="fixed-bottom">inspirational.tk</div>
+      <div className="fixed-bottom">
+        <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
+          inspirational.tk
+        </Box>
+      </div>
     </div>
   );
 }
