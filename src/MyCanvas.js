@@ -41,7 +41,12 @@ export const MyCanvas = ({ list, show, setShow }) => {
             <CardContent>
               <Grid container>
                 {Object.keys(list).map((i) => (
-                  <Grid container key={i} spacing={1}>
+                  <Grid
+                    container
+                    key={i}
+                    spacing={1}
+                    style={{ marginBottom: "5px" }}
+                  >
                     <Grid item xs={4}>
                       <Box border={1} padding={1}>
                         {t(list[i].nome)}

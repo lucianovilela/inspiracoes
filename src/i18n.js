@@ -20,7 +20,7 @@ const resources = {
       copiar: "Copy to Clipboard"
     }
   },
-  "pt-br": {
+  pt: {
     translation: {
       title: "Minhas Inspirações BJJ",
       guarda: "Guarda",

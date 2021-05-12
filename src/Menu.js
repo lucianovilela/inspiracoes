@@ -22,7 +22,7 @@ export default function SimpleMenu({ anchorEl, setAnchorEl }) {
       >
         <MenuItem
           onClick={() => {
-            i18n.changeLanguage("pt-br");
+            i18n.changeLanguage("pt");
             handleClose();
           }}
         >
