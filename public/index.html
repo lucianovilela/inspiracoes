@@ -35,6 +35,7 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
     />
+    <script async src="https://www.googletagmanager.com/gtag/js"></script>
     <title>Minhas Inspirações</title>
   </head>
 
@@ -75,7 +76,6 @@
       firebase.initializeApp(firebaseConfig);
 
       const analytics = firebase.analytics();
-      console.log(analytics);
       analytics.logEvent("notification_received");
 
       async function saveArquivo(arq) {

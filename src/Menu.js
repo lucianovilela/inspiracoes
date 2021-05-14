@@ -21,7 +21,13 @@ export default function SimpleMenu({ anchorEl, setAnchorEl }) {
       >
         <MenuItem
           onClick={() => {
-            window.analytics.logEvent("mudança de linguagem");
+            window.firebase
+              .analytics()
+              .logEvent("language_change", {
+                content_type: "language",
+                content_id: "P1",
+                items: [{ name: "PT" }]
+              });
 
             i18n.changeLanguage("pt");
             handleClose();
@@ -31,7 +37,13 @@ export default function SimpleMenu({ anchorEl, setAnchorEl }) {
         </MenuItem>
         <MenuItem
           onClick={() => {
-            window.analytics.logEvent("mudança de linguagem");
+            window.firebase
+              .analytics()
+              .logEvent("language_change", {
+                content_type: "language",
+                content_id: "P1",
+                items: [{ name: "EN" }]
+              });
             i18n.changeLanguage("en");
             handleClose();
           }}

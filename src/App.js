@@ -80,7 +80,12 @@ export default function App() {
           variant="outlined"
           color="primary"
           style={{ margin: "0.5em" }}
-          onClick={() => setShowView(true)}
+          onClick={() => {
+            window.firebase.analytics().logEvent("view", {
+              content_type: "view"
+            });
+            setShowView(true);
+          }}
         >
           {t("visualizar")}
         </Button>
