@@ -7,7 +7,8 @@ import {
   CardContent,
   CardActions,
   Link,
-  Box
+  Box,
+  Container
 } from "@material-ui/core";
 import { useTranslation } from "react-i18next";
 
@@ -33,7 +34,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
   };
 
   return (
-    <div>
+    <Container>
       <Dialog fullScreen open={show} aria-labelledby="form-dialog-title">
         <div id="canvasId" ref={node}>
           <Card>
@@ -48,7 +49,12 @@ export const MyCanvas = ({ list, show, setShow }) => {
                     style={{ marginBottom: "5px" }}
                   >
                     <Grid item xs={4}>
-                      <Box border={1} padding={1}>
+                      <Box
+                        border={1}
+                        padding={1}
+                        bgcolor="primary.main"
+                        color="primary.contrastText"
+                      >
                         {t(list[i].nome)}
                       </Box>
                     </Grid>
@@ -78,17 +84,17 @@ export const MyCanvas = ({ list, show, setShow }) => {
             rel="noreferrer"
             download
           >
-            Download
+            {t("download")}
           </Link>
           <Link
             variant="button"
             color="secondary"
             onClick={() => setShow(false)}
           >
-            Close
+            {t("close")}
           </Link>
         </DialogActions>
       </Dialog>
-    </div>
+    </Container>
   );
 };

@@ -34,7 +34,7 @@ const useStyles = makeStyles((theme) => ({
 export default function App() {
   const classes = useStyles();
 
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
   const initial = {
     "1": { nome: "guarda", valor: "" },
     "2": { nome: "passagem", valor: "" },

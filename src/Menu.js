@@ -1,5 +1,4 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import { useTranslation } from "react-i18next";
@@ -22,6 +21,8 @@ export default function SimpleMenu({ anchorEl, setAnchorEl }) {
       >
         <MenuItem
           onClick={() => {
+            window.analytics.logEvent("mudança de linguagem");
+
             i18n.changeLanguage("pt");
             handleClose();
           }}
@@ -30,6 +31,7 @@ export default function SimpleMenu({ anchorEl, setAnchorEl }) {
         </MenuItem>
         <MenuItem
           onClick={() => {
+            window.analytics.logEvent("mudança de linguagem");
             i18n.changeLanguage("en");
             handleClose();
           }}

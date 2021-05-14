@@ -27,7 +27,6 @@ export const Carrocel = ({ list, setList }) => {
       <CardContent className="card-body">
         <InputLabel className="form-label">{t(current.item.nome)}</InputLabel>
         <TextField
-          className="form-control"
           onChange={(event) => onChange(event)}
           value={current.item.valor}
         />

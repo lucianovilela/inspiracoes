@@ -12,12 +12,14 @@ const resources = {
       passagem: "Guard pass",
       costas: "Back attack",
       queda: "Take down",
-      raspagem: "Swap",
+      raspagem: "Sweep",
       finalizacao: "Tapout",
       estrategia: "Strategy",
       visualizar: "View",
       msgAuto: "Made by",
-      copiar: "Copy to Clipboard"
+      copiar: "Copy to Clipboard",
+      close: "Close",
+      download: "Download"
     }
   },
   pt: {
@@ -32,7 +34,9 @@ const resources = {
       estrategia: "Estratégia",
       visualizar: "Visualizar",
       msgAuto: "Gerado por",
-      copiar: "Copiar para o Clipboard"
+      copiar: "Copiar para o Clipboard",
+      close: "Fechar",
+      download: "Download"
     }
   }
 };
