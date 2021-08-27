@@ -10,28 +10,41 @@ import {
   Box,
   Container
 } from "@material-ui/core";
+
 import { useTranslation } from "react-i18next";
 
 import { Dialog, DialogActions, Grid } from "@material-ui/core";
 
+import AlertDialog from "./AlertDialog";
+
 export const MyCanvas = ({ list, show, setShow }) => {
   const node = React.createRef();
   const [img, setImg] = React.useState();
+  const [showDialog, setShowDialog] = React.useState(false);
   const { t } = useTranslation();
 
-  const click = () => {
+  const generateImage = () => {
     console.log("click canvas", node.current);
     domtoimage
       .toPng(node.current)
       .then(async function (dataUrl) {
-        window.copyToClipboard(dataUrl);
+        try {
+          window.copyToClipboard(dataUrl);
+        } catch (error) {
+          console.log(error);
+        }
 
         setImg(dataUrl);
+        setShowDialog(true);
       })
       .catch(function (error) {
         console.error("oops, something went wrong!", error);
       });
   };
+
+  React.useEffect(() => {
+    generateImage();
+  }, [show]);
 
   return (
     <Container>
@@ -72,7 +85,7 @@ export const MyCanvas = ({ list, show, setShow }) => {
           </Card>
         </div>
         <DialogActions>
-          <Button variant="outlined" color="primary" onClick={click}>
+          <Button variant="outlined" color="primary" onClick={generateImage}>
             {t("copiar")}
           </Button>
           <Link
@@ -95,6 +108,11 @@ export const MyCanvas = ({ list, show, setShow }) => {
           </Link>
         </DialogActions>
       </Dialog>
+      <AlertDialog
+        isOpen={showDialog}
+        title="gerado"
+        text="gerado com suceesso"
+      />
     </Container>
   );
 };

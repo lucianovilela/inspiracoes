@@ -3,7 +3,6 @@ import React from "react";
 import { useTranslation } from "react-i18next";
 
 import {
-  Button,
   AppBar,
   IconButton,
   Toolbar,
@@ -18,7 +17,6 @@ import { Language } from "@material-ui/icons";
 
 import Menu from "./Menu";
 import { Carrocel } from "./Carrocel";
-import { MyCanvas } from "./MyCanvas";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -45,7 +43,6 @@ export default function App() {
     "7": { nome: "estrategia", valor: "" }
   };
   const [list, setList] = React.useState(initial);
-  const [showView, setShowView] = React.useState(false);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   return (
@@ -74,32 +71,18 @@ export default function App() {
           <Menu anchorEl={anchorEl} setAnchorEl={setAnchorEl} />
         </Toolbar>
       </AppBar>
-      <Carrocel list={list} setList={setList} />
-      <div>
-        <Button
-          variant="outlined"
-          color="primary"
-          style={{ margin: "0.5em" }}
-          onClick={() => {
-            window.firebase.analytics().logEvent("view", {
-              content_type: "view"
-            });
-            setShowView(true);
-          }}
-        >
-          {t("visualizar")}
-        </Button>
-
-        <Button
-          variant="outlined"
-          color="secondary"
-          onClick={() => setList(initial)}
-        >
-          Reset
-        </Button>
-      </div>
+      <Carrocel
+        list={list}
+        setList={setList}
+        style={{
+          flex: 1,
+          background: "red",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%"
+        }}
+      />
       {/*<div>{JSON.stringify(list)}</div>*/}
-      {<MyCanvas list={list} show={showView} setShow={setShowView} />}
       <div className="fixed-bottom">
         <Box bgcolor="primary.main" color="primary.contrastText" p={2}>
           inspirational.tk
