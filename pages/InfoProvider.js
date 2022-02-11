@@ -1,14 +1,9 @@
-import React, { createContext } from "react";
-//import * as firebase from "firebase";
-import AsyncStorage from "@react-native-async-storage/async-storage";
-import { pesquisa } from "../services/pesquisa";
-
-import { LIST_NAME } from "./Constants";
+import React, { createContext, useContext } from "react";
 
 const ContextAuth = createContext();
 export default ContextAuth;
 
-const AuthProvider = ({ children }) => {
+const Provider = ({ children }) => {
   const [state, dispatch] = React.useReducer(
     (prevState, action) => {
       switch (action.type) {
@@ -32,4 +27,5 @@ const AuthProvider = ({ children }) => {
   );
 };
 
-export { AuthProvider };
+export { Provider };
+export const useInfo = () => useContext(ContextAuth);

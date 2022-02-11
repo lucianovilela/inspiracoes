@@ -29,7 +29,7 @@ const useStyles = makeStyles((theme) => ({
     flexGrow: 1
   }
 }));
-export default function App() {
+export default function Home() {
   const classes = useStyles();
 
   const { t } = useTranslation();
